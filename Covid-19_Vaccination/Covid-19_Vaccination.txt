@@ -1,0 +1,56 @@
+*****************************
+application.properties......
+-----------------------------------------------------
+
+##changing the server port
+#server.port=8088
+
+#db specific properties
+spring.datasource.url=jdbc:mysql://localhost:3306/covid-19db
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=root
+
+#ORM s/w specific properties
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+
+****************************
+pom.xml............
+------------------------------------
+
+1. MySql Driver
+2. Spirng Boot Dev Tools
+3. Spring Data JPA
+4. Spring Web
+5. Validation
+
+
+
+
+*****************************
+Extra dependency.............
+___________________________
+
+
+
+
+
+
+
+
+
+******************************
+EntityClasses...
+-------------------------------------
+
+1. Member.java    // 3. Appoinment.java   // 4. VaccineRegistration.java
+
+2. Vaccine.java   // 
+
+
+3. Appoinment.java
+4. VaccineRegistration.java
+
