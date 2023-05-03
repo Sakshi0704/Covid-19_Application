@@ -1,4 +1,4 @@
-package com.covid.enums;
+package com.covid.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

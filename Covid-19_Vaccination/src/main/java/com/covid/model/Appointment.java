@@ -2,12 +2,13 @@ package com.covid.model;
 
 import java.time.LocalDate;
 
-import com.covid.enums.Slot;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -37,5 +38,12 @@ public class Appointment {
 	// private VaccinationCenter vaccinationcenter
 
 	private boolean bookingstatus;
+	
+	@OneToOne
+	private Member member;
+	
+	
+	@OneToOne
+	private VaccinationCentre vaccinationCentre;
 
 }
