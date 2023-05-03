@@ -26,6 +26,8 @@ pom.xml............
 3. Spring Data JPA
 4. Spring Web
 5. Validation
+6. LomBok
+7. Thymeleaf
 
 
 
@@ -33,6 +35,11 @@ pom.xml............
 *****************************
 Extra dependency.............
 ___________________________
+
+
+Two new dependency has been added.
+1. LomBok
+2. Thymeleaf
 
 
 
