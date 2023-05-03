@@ -2,7 +2,7 @@ package com.covid.service;
 
 import java.util.*;
 
-import com.covid.entities.VaccinationCentre;
+import com.covid.model.VaccinationCentre;
 
 public interface VaccinationCentreService {
 

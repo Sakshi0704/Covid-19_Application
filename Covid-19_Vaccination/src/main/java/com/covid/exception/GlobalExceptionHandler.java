@@ -42,16 +42,7 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
 	}
 	
-	@ExceptionHandler(RuntimeException.class)
-	public ResponseEntity<ErrorDetails> runtimeExceptionHandler(RuntimeException e, WebRequest w){
-		
-		ErrorDetails err = new ErrorDetails();
-		err.setTimestamp(LocalDateTime.now());
-		err.setMessage(e.getMessage());
-		err.setUri(w.getDescription(false));
-		
-		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
-	}
+	
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<ErrorDetails> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e, WebRequest w){

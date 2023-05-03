@@ -29,8 +29,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class IdCard {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	@NotBlank(message = "Name should not be blank")
@@ -55,12 +56,12 @@ public class IdCard {
 	
 	private String pincode;
 	
-	@Embedded
-	private Member member;
-	
 	@JsonIgnore
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	private Member member;
+	
+	//@JsonIgnore
+	@Embedded
 	private AdharCard adharCard;
 	
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.covid.entities.VaccinationCentre;
+import com.covid.model.VaccinationCentre;
 import com.covid.repository.VaccinationCentreRepository;
 
 @Service
