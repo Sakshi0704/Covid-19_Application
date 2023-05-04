@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -40,7 +41,7 @@ public class Member{
 	private List<VaccineRegistration> vaccineRegistrationList;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Vaccine vaccine;
 	
 	
