@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -36,11 +35,11 @@ public class Member{
 	@OneToOne
 	private IdCard idCard;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<VaccineRegistration> vaccineRegistrationList;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Vaccine vaccine;
 	
 	

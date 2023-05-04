@@ -1,6 +1,6 @@
 package com.covid.model;
 
-
+import java.util.HashSet;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -10,41 +10,43 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.*;
 
 
 @Data
 @Getter
 @Setter
 @Entity
-public class Vaccine {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer vaccineId;
+	private Integer UserId;
 	
-	@NotNull
 	@NotEmpty
-	@Column(unique = true)
-	private String vaccineName;
-	
-	
 	@NotNull
-	private String description;
+	@Column(unique = true)
+	private String UserMobile;
+	
+	@NotEmpty
+	@NotNull
+	private String UserName;
 	
 	
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "vaccine")
-	private VaccineCount vaccineCount;
-
+	private String UserPassword;
+	
 	
 	@JsonIgnore
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "vaccine")
-	private Member member;
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<IdCard> setIdCard = new HashSet<>();
+	
+	
 	
 	
 }
