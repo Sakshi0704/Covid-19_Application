@@ -1,23 +1,23 @@
 package com.covid.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Member{
 	
 	@Id
@@ -36,7 +36,7 @@ public class Member{
 	@OneToOne
 	private IdCard idCard;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<VaccineRegistration> vaccineRegistrationList;
 	
 	
