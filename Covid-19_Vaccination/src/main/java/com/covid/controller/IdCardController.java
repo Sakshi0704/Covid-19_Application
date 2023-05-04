@@ -25,16 +25,18 @@ public class IdCardController {
 	@PostMapping("/users")
 	public ResponseEntity<IdCard> addIdCard(@Valid @RequestBody IdCard card) throws IdCardException {
 
-		IdCard registeredUser = idCardService.registerNewUser(card);
+		IdCard registeredCard = idCardService.addIdCard(card);
 
-		return new ResponseEntity<>(registeredUser, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(registeredCard, HttpStatus.ACCEPTED);
 	}
+	
+	
 
-	@GetMapping("/users")
-	public ResponseEntity<List<IdCard>> getAllUsers() throws IdCardException {
-
-		List<IdCard> listOfUsers = idCardService.getAllUsers();
-
-		return new ResponseEntity<>(listOfUsers, HttpStatus.OK);
-	}
+//	@GetMapping("/users")
+//	public ResponseEntity<List<IdCard>> getAllUsers() throws IdCardException {
+//
+//		List<IdCard> listOfUsers = idCardService.getAllUsers();
+//
+//		return new ResponseEntity<>(listOfUsers, HttpStatus.OK);
+//	}
 }
