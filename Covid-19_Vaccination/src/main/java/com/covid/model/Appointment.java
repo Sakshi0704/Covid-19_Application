@@ -30,8 +30,8 @@ public class Appointment {
 	@NotEmpty
 	private LocalDate dateofbooking;
 
-	@NotNull
-	@NotEmpty
+	@NotNull(message = "Null value is not applicable")
+	@NotEmpty(message = "Slot details are necessary")
 	private Slot slot;
 
 	// @OneToOne(cascade = CascadeType.ALL)
