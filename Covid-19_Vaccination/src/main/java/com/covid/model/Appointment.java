@@ -46,4 +46,6 @@ public class Appointment {
 	@OneToOne
 	private VaccinationCentre vaccinationCentre;
 
+
+	
 }

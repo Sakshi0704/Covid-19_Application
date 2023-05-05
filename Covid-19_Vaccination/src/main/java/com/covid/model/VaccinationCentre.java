@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,8 +29,8 @@ public class VaccinationCentre {
     private String pincode;
     private String locality;
     
-    @OneToOne
-    private Appointment appointment;
+    @OneToMany
+    private List<Appointment> appointmentList = new ArrayList<>();
     
     @OneToMany
     private List<VaccineInventory> vaccineInventoryList;

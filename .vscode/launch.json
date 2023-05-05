@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Appointment",
+            "request": "launch",
+            "mainClass": "com.covid.model.Appointment",
+            "projectName": "Covid-19_Vaccination"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
