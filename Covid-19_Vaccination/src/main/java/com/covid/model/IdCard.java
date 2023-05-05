@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -13,6 +14,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.validation.constraints.NotBlank;
@@ -22,12 +25,14 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class IdCard {
 	
 	@Id
@@ -48,7 +53,7 @@ public class IdCard {
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	
-	private String address;
+//	private String address;
 	
 	private String city;
 	
@@ -56,12 +61,17 @@ public class IdCard {
 	
 	private String pincode;
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@OneToOne
+	@PrimaryKeyJoinColumn
 	private Member member;
 	
 	//@JsonIgnore
 	@Embedded
 	private AdharCard adharCard;
+	
+	@ManyToOne
+	@JoinColumn(name = "userId")
+	private MainUser mainUser;
 	
 }

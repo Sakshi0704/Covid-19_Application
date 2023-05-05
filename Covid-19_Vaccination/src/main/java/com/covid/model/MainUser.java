@@ -13,38 +13,42 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.*;
 
 
 @Data
-@Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class User {
+public class MainUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer UserId;
+	private Integer userId;
 	
 	@NotEmpty
 	@NotNull
 	@Column(unique = true)
-	private String UserMobile;
+	private String userMobile;
 	
 	@NotEmpty
 	@NotNull
-	private String UserName;
+	private String userName;
+	
+	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", 
+			message = "password should contain 8 characters including at least one number and one alphabet")
+	private String userPassword;
 	
 	
-	private String UserPassword;
-	
-	
-	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<IdCard> setIdCard = new HashSet<>();
+//	@JsonIgnore
+	@OneToMany(mappedBy = "mainUser", cascade = CascadeType.ALL)
+	private Set<IdCard> idCardSet = new HashSet<>();
 	
 	
 	
