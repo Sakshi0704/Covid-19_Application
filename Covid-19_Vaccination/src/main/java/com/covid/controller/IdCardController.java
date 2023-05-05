@@ -1,15 +1,13 @@
 package com.covid.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.covid.exception.AdharCardException;
 import com.covid.exception.IdCardException;
 import com.covid.model.IdCard;
 import com.covid.service.IdCardService;
@@ -23,7 +21,7 @@ public class IdCardController {
 	private IdCardService idCardService;
 
 	@PostMapping("/users")
-	public ResponseEntity<IdCard> addIdCard(@Valid @RequestBody IdCard card) throws IdCardException {
+	public ResponseEntity<IdCard> addIdCard(@Valid @RequestBody IdCard card) throws IdCardException, AdharCardException {
 
 		IdCard registeredCard = idCardService.addIdCard(card);
 

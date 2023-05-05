@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.covid.exception.IdCardException;
 import com.covid.exception.MemberException;
 import com.covid.model.Member;
 import com.covid.repository.MemberRepository;
@@ -47,15 +48,60 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member addMember(Member member) throws MemberException {
+	public Member addMember(Member member) throws MemberException, IdCardException {
 		// TODO Auto-generated method stub
-		return null;
+		
+		if(member.getIdCard() == null) throw new IdCardException("provide IdCard information first");
+		
+		if(memberRepo.findMemberByAdharNumber(member.getIdCard().getAdharCard().getAdharNumber()) != null) {
+			throw new MemberException("Member with same Adhar Number already exists");
+		}
+		
+		/*
+		 * if member enters his idcard details and save it then the member will be automatically created
+		 */
+		
+		return member;
 	}
+	
+	
 
+	/*
+	 * To access this method 
+	 * frontend developer should provide the memberId also
+	 * 
+	 * from frontend we can save the memberId in local storage when a user enters into the member's dashboard
+	 * and when he will be leaving member's dashboard then we have to remove memberId from local storage
+	 */
 	@Override
-	public Member updateMember(Member member) throws MemberException {
+	public Member updateMember(Member member) throws MemberException, IdCardException {
 		// TODO Auto-generated method stub
-		return null;
+		
+		if(member.getIdCard() == null) throw new IdCardException("provide IdCard information first");
+		
+		/*
+		 * checking for the member is already registered or not 
+		 * if not then throwing an exception with message "register first"
+		 */
+		if(memberRepo.findMemberByAdharNumber(member.getIdCard().getAdharCard().getAdharNumber()) == null) {
+			throw new MemberException("Member with Adhar Number doesn't exists, Please try to register first!!!");
+		}
+		
+		
+		Optional<Member> op = memberRepo.findById(member.getMemberId());
+		
+		if(op.isPresent() == false) {
+			throw new MemberException("Member not found");
+		}
+		
+		Member existingMember = op.get();
+		
+		existingMember.setDose1Status(member.getDose1Status());
+		existingMember.setDose2Status(member.getDose2Status());
+		existingMember.setDose1Date(member.getDose1Date());
+		existingMember.setDose2Date(member.getDose2Date());
+		
+		return memberRepo.save(existingMember);
 	}
 
 	@Override

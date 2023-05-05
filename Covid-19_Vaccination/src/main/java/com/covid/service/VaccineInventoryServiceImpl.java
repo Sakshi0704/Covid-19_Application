@@ -116,11 +116,11 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 		return list;
 	}
 
-	@Override
-	public List<VaccineInventory> getVaccineInventoryByVaccine(Integer vaccineId)
-			throws VaccineException,VaccineInventoryException {
-		return null;
-	}
+//	@Override
+//	public List<VaccineInventory> getVaccineInventoryByVaccine(Integer vaccineId)
+//			throws VaccineException, VaccineInventoryException {
+//		return null;
+//	}
 	
 	
 	
