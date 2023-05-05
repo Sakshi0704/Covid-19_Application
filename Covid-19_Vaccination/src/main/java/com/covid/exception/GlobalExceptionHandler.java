@@ -24,9 +24,51 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
 	}
 	
+	@ExceptionHandler(MemberException.class)
+	public ResponseEntity<ErrorDetails> memberExceptionHandler(MemberException e, WebRequest w){
+		
+		ErrorDetails err = new ErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(e.getMessage());
+		err.setUri(w.getDescription(false));
+		
+		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+	}
 	
 	
+	@ExceptionHandler(VaccineException.class)
+	public ResponseEntity<ErrorDetails> idCardExceptionHandler(VaccineException e, WebRequest w){
+		
+		ErrorDetails err = new ErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(e.getMessage());
+		err.setUri(w.getDescription(false));
+		
+		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+	}
 	
+	@ExceptionHandler(VaccineInventoryException.class)
+	public ResponseEntity<ErrorDetails> idCardExceptionHandler(VaccineInventoryException e, WebRequest w){
+		
+		ErrorDetails err = new ErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(e.getMessage());
+		err.setUri(w.getDescription(false));
+		
+		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+	}
+	
+	
+	@ExceptionHandler(VaccinationCenterException.class)
+	public ResponseEntity<ErrorDetails> idCardExceptionHandler(VaccinationCenterException e, WebRequest w){
+		
+		ErrorDetails err = new ErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(e.getMessage());
+		err.setUri(w.getDescription(false));
+		
+		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+	}
 	
 	
 	// ------------------   Mandatory Exceptions   --------------------//
