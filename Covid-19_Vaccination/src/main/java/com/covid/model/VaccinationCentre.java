@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 
 
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,8 +32,11 @@ public class VaccinationCentre {
     private String pincode;
     private String locality;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    private Appointment appointment;
+
+    @OneToMany
+    private List<Appointment> appointmentList = new ArrayList<>();
+
+
     
     @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
