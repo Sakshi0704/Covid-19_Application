@@ -6,6 +6,7 @@ import java.util.List;
 import com.covid.exception.VaccinationCenterException;
 import com.covid.exception.VaccineException;
 import com.covid.exception.VaccineInventoryException;
+import com.covid.model.Vaccine;
 import com.covid.model.VaccineCount;
 import com.covid.model.VaccineInventory;
 
@@ -24,7 +25,9 @@ public interface VaccineInventoryService {
 	
 	public List<VaccineInventory> getVaccineInventoryByDate(LocalDate date) throws VaccineInventoryException;
 	
+
 	public List<VaccineInventory> getVaccineInventoryByVaccine(Integer vaccineId) throws VaccineInventoryException, VaccineException;
+
 	
 	 
 }

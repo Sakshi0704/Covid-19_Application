@@ -15,6 +15,7 @@ import com.covid.repository.VaccineInventoryRepository;
 import com.covid.repository.VaccineRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -117,13 +118,34 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 	}
 
 	@Override
-	public List<VaccineInventory> getVaccineInventoryByVaccine(Integer vaccineId)
-			throws VaccineException,VaccineInventoryException {
-		return null;
+	public List<VaccineInventory> getVaccineInventoryByVaccine(Vaccine vaccine) throws VaccineInventoryException {
+		
+		List<VaccineInventory> result = new ArrayList<>();
+		
+		List<VaccineInventory> list = vaccineInventoryRepository.findAll();
+		
+		if(list.isEmpty()) {
+			throw new VaccineInventoryException("No VaccineInventory found, Please add some inventory first");
+		}
+		
+		for(VaccineInventory vacInv: list) {
+			List<VaccineCount> vacCountList = vacInv.getVaccineCounts();
+			
+			if(vacCountList.isEmpty()) {
+				throw new VaccineInventoryException("No Vaccine Quentity found, Please add some Vaccine Quentity");
+			}
+			
+			for(VaccineCount vacCount: vacCountList) {
+				if(vacCount.getVaccine()==vaccine) {
+					result.add(vacInv);
+				}
+			}
+		}
+		if(result.isEmpty()) {
+			throw new VaccineInventoryException("No VaccineInventory Found with Vaccine: "+vaccine);
+		}
+		return result;
+		
 	}
-	
-	
-	
-	
-	
+
 }
