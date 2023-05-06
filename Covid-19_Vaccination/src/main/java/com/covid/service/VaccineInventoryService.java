@@ -26,7 +26,7 @@ public interface VaccineInventoryService {
 	public List<VaccineInventory> getVaccineInventoryByDate(LocalDate date) throws VaccineInventoryException;
 	
 
-	public List<VaccineInventory> getVaccineInventoryByVaccine(Integer vaccineId) throws VaccineInventoryException, VaccineException;
+	public List<VaccineInventory> getVaccineInventoryByVaccine(Vaccine vaccine) throws VaccineInventoryException, VaccineException;
 
 	
 	 
