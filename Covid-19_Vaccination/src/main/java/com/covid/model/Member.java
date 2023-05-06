@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -11,6 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -42,8 +45,9 @@ public class Member{
 	@JoinColumn(name = "IdCard_id")
 	private IdCard idCard;
 	
-	@OneToMany(cascade = CascadeType.PERSIST)
-	private List<VaccineRegistration> vaccineRegistrationList;
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private VaccineRegistration vaccineRegistration;
 	
 	
 	@OneToOne(cascade = CascadeType.PERSIST)
