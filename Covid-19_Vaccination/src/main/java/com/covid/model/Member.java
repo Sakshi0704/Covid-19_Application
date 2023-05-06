@@ -54,7 +54,7 @@ public class Member{
 	private Vaccine vaccine;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Appointment appointment;
 	
 }

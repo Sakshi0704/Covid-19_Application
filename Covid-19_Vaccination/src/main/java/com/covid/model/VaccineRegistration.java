@@ -46,7 +46,7 @@ public class VaccineRegistration {
 	private LocalDate dateOfRegistration;
 
 	
-	@OneToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.PERSIST , mappedBy = "vaccineRegistration")
 	private List<Member> memberList = new ArrayList<>();
 
 }
