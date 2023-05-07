@@ -65,13 +65,13 @@ public class VaccineServiceImpl implements VaccineService {
 	@Override
 	public Vaccine registerNewVaccine(Vaccine vaccine) throws VaccineException {
 		
-			Vaccine existingVaccine = vaccineRepository.findByVaccineName(vaccine.getVaccineName())
-					.orElseThrow(() -> new VaccineException("Vaccine already exist"));
+			// Vaccine existingVaccine = vaccineRepository.findByVaccineName(vaccine.getVaccineName())
+			// 		.orElseThrow(() -> new VaccineException("Vaccine already exist"));
 			
 			
-			VaccineCount vaccineCount = vaccine.getVaccineCount();
+			// VaccineCount vaccineCount = vaccine.getVaccineCount();
 			
-			vaccineCount.setVaccine(vaccine);
+			// vaccineCount.setVaccine(vaccine);
 			
 			return vaccineRepository.save(vaccine);
 			

@@ -2,9 +2,10 @@ package com.covid.model;
 
 import java.time.LocalDate;
 
-
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,19 +20,20 @@ import lombok.Data;
 public class Appointment {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long bookingid;
 
 	// DOUBT STRING OR LONG
 	@Pattern(regexp = "[7-9]{1}[0-9]{9}", message = "Please Enter a Valid Mobile Number")
-	private long mobileno;
+	private String mobileno;
 
-	@NotNull
-	@NotEmpty
-	private LocalDate dateofbooking;
 
-	@NotNull(message = "Null value is not applicable")
-	@NotEmpty(message = "Slot details are necessary")
+	//@NotEmpty
+	private String dateofbooking;
+
+	// @NotNull
+	// @NotEmpty
+	@Enumerated(EnumType.STRING)
 	private Slot slot;
 
 	// @OneToOne(cascade = CascadeType.ALL)
@@ -39,11 +41,11 @@ public class Appointment {
 
 	private boolean bookingstatus;
 	
-	@OneToOne
-	private Member member;
+	// @OneToOne
+	// private Member member;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private VaccinationCentre vaccinationCentre;
 
 

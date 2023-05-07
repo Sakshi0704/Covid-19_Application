@@ -9,6 +9,6 @@ import com.covid.model.Member;
 
 public interface MemberRepository extends JpaRepository<Member, Integer>, PagingAndSortingRepository<Member, Integer>{
 	
-	@Query("select m from Member m where m.idCard.adharCard.adharNumber = :aNumber")
-	public Member findMemberByAdharNumber(@Param("aNumber") Long adharNumber);
+	// @Query("select m from Member m where m.idCard.adharCard.adharNumber = :aNumber")
+	// public Member findMemberByAdharNumber(@Param("aNumber") Long adharNumber);
 }

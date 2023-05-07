@@ -4,10 +4,12 @@ import com.covid.exception.AppointmentException;
 import com.covid.model.Appointment;
 import com.covid.repository.AppointmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AppointmentServiceImpl implements AppointmentService {
 
     @Autowired
