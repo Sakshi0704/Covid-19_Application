@@ -34,16 +34,16 @@ public class MainUser {
 	
 	@NotEmpty
 	@NotNull
-	@Column(unique = true)
+	@Column(unique = true, length=10)
 	private String userMobile;
 	
-	@NotEmpty
-	@NotNull
-	private String userName;
+	// @NotEmpty
+	// @NotNull
+	// private String userName;
 	
-	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", 
-			message = "password should contain 8 characters including at least one number and one alphabet")
-	private String userPassword;
+	// @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", 
+	// 		message = "password should contain 8 characters including at least one number and one alphabet")
+	// private String userPassword;
 	
 	
 //	@JsonIgnore
