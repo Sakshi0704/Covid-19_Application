@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaccination Registration Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Vaccination Registration Form</h4>
+          </div>
+          <div class="card-body">
+            <form th:action="@{/hi}" th:object="${idcard}" method="POST">
+
+
+              <div class="form-group">
+                <label>Mobile Number </label>
+                <input type="text"
+                name="idName"
+                th:field="*{mainuser.userMobile}"
+                class="form-control"
+                placeholder="Enter Mobile Number must be your ragister number" required>
+            </div>
+
+              <div class="form-group">
+                <label>idName</label>
+                <input type="text"
+                name="idName"
+                th:field="*{idProof.idName}"
+                class="form-control"
+                placeholder="Enter idName" required>
+            </div>
+
+            <div class="form-group">
+                <label>idNumber</label>
+                <input type="text"
+                name="idNumber"
+                th:field="*{idProof.idNumber}"
+                class="form-control"
+                placeholder="idNumber" required>
+            </div>
+
+
+    
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name" th:field="*{name}" required>
+              </div>
+
+              <div class="form-group">
+                <label for="date">dateOfBirth</label>
+                <input type="date" class="form-control" id="state" th:field="*{dateOfBirth}" required>
+              </div>
+
+              <div class="form-group">
+                <label for="location">Gender:</label>
+                <select class="form-control" id="location" th:field="*{gender}" required>
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+        
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" placeholder="Enter your state" th:field="*{state}" required>
+              </div>
+
+              <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter your city" th:field="*{city}" required>
+              </div>
+
+              <div class="form-group">
+                <label for="locality">Locality:</label>
+                <input type="text" class="form-control" id="locality" placeholder="Enter your phone locality" th:field="*{locality}" required>
+              </div>
+              
+              
+              <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" class="form-control" id="pincode" th:field="*{pincode}" required>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

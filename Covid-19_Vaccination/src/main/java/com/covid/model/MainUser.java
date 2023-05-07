@@ -29,25 +29,21 @@ import java.util.*;
 public class MainUser {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
-	
-	@NotEmpty
-	@NotNull
-	@Column(unique = true, length=10)
-	private String userMobile;
 	
 	// @NotEmpty
 	// @NotNull
-	// private String userName;
+	// @Pattern(regexp = "[0-9]{10}")
+	//@Column(unique = true, length=10)
+	private String userMobile;
+
+	private Integer otp;
 	
-	// @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", 
-	// 		message = "password should contain 8 characters including at least one number and one alphabet")
-	// private String userPassword;
 	
 	
-//	@JsonIgnore
-	@OneToMany(mappedBy = "mainUser", cascade = CascadeType.ALL)
+	// @JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL)
 	private Set<IdCard> idCardSet = new HashSet<>();
 	
 	

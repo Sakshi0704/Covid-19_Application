@@ -38,14 +38,14 @@ public class VaccineInventory {
 	@JsonFormat(shape= JsonFormat.Shape.STRING , pattern = "yyyy-MM-dd")
 	private LocalDate date;
 	
-	@JsonManagedReference
-	@OneToMany(cascade = CascadeType.PERSIST,mappedBy = "vaccineInventory")
-	private  List<VaccinationCentre> vaccinationCenters;
+	// @JsonManagedReference
+	// @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "vaccineInventory")
+	// private  List<VaccinationCentre> vaccinationCenters;
 	
 	
-	@JsonManagedReference
-	@OneToMany(cascade = CascadeType.PERSIST,mappedBy = "vaccineInventory")
-	private List<VaccineCount> vaccineCounts; 
+	// @JsonManagedReference
+	// @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "vaccineInventory")
+	// private List<VaccineCount> vaccineCounts; 
 	
 	
 }

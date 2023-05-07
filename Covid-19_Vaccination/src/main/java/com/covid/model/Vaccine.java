@@ -38,13 +38,13 @@ public class Vaccine {
 	private String description;
 	
 	
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "vaccine")
-	private VaccineCount vaccineCount;
+	// @OneToOne(cascade = CascadeType.ALL,mappedBy = "vaccine")
+	// private VaccineCount vaccineCount;
 
 	
-	@JsonIgnore
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "vaccine")
-	private Member member;
+	// @JsonIgnore
+	// @OneToOne(cascade = CascadeType.ALL,mappedBy = "vaccine")
+	// private Member member;
 	
 	
 }
