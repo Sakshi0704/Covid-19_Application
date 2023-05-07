@@ -3,6 +3,8 @@ package com.covid.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,9 +29,11 @@ public class VaccinationCentre {
     private String locality;
 
 
+    //@JsonIgnore
     @OneToMany
     private List<Appointment> appointmentList = new ArrayList<>();
     
+   // @JsonIgnore
     @OneToMany
     private List<VaccineInventory> vaccineInventoryList;
 
