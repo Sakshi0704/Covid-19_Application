@@ -11,13 +11,15 @@ import com.covid.model.IdProof;
 public interface IdCardService {
 	public IdCard saveIdCard(IdCard idCard);
 
-    public IdProof saveIdProof(IdProof idproof);
+    public IdProof saveIdProof(IdProof idproof); // no sense to me
 
     public List<IdCard> getAllIdCards();
 
     public Optional<IdCard> getIdCardById(Integer id);
+    
    // IdCard findByUserMobile(String mobile);
     //public Optional<IdCard> getIdCardByIdProof(IdProof idProof);
+    
     public List<IdCard> findByMobile(String mobile);
     public void deleteIdCard(Integer id);
 
