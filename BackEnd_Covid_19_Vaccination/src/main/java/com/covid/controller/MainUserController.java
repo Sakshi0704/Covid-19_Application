@@ -82,13 +82,14 @@ public class MainUserController{
     @Autowired
     private MainUserRepository mainUserRepository;
 
-@GetMapping("/mainusers")   // admin
+@GetMapping("/mainusers")
 public List<MainUser> getAllMainUsers(){
     List<MainUser> list = mainUserRepository.findAll();
     return list;
 }
 
-@PostMapping("/mainusers")    //for user..
+@PostMapping("/mainusers")
+
 public MainUser addMainUser(@RequestBody MainUser mainUser){
   //  MainUser mainuser = mainUserRepository.findUserByuserMobile(mobileNumber);
    

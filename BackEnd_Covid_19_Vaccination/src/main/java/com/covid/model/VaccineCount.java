@@ -41,4 +41,7 @@ public class VaccineCount {
 	private Vaccine vaccine;
 	
 	
+	
+
+	
 }

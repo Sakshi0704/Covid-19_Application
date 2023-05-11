@@ -3,7 +3,6 @@
 package com.covid.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,36 +46,19 @@ public List<IdCard> getIdCard(){
 }
 
 
-//@PostMapping("/idcard/{mobile}/{idproofNumber}")
-//public IdCard addIdCard(@RequestBody IdCard idcard, @PathVariable String mobile, @PathVariable String idproofNumber){
-//  IdProof idproof = idProofRepository.findByIdNumber(idproofNumber);
-//  
-//    MainUser mainuser = mainUserRepository.findUserByuserMobile(mobile);
-//   idcard.setMainuser(mainuser);
-//   idcard.setIdProof(idproof);
-//   idCardRepository.save(idcard);
-//
-//   return idcard;
-//
-//}
+@PostMapping("/idcard/{mobile}/{idproofNumber}")
+public IdCard addIdCard(@RequestBody IdCard idcard, @PathVariable String mobile, @PathVariable String idproofNumber){
+  IdProof idproof = idProofRepository.findByIdNumber(idproofNumber);
+  
+    MainUser mainuser = mainUserRepository.findUserByuserMobile(mobile);
+   idcard.setMainuser(mainuser);
+   idcard.setIdProof(idproof);
+   idCardRepository.save(idcard);
 
-    
-    @PostMapping("/idcard/{mobile}")
-    public IdCard addIdCard(@RequestBody IdCard idcard, @PathVariable String mobile){
-      
-    	
-    	Optional<IdCard> existIdCard = idCardRepository.findById(idcard.getId());
-    	
-    	
-    	if(!existIdCard.isPresent()) {
-    		
-    		MainUser mainUser = mainUserRepository.findUserByuserMobile(mobile);
-    		idcard.setMainuser(mainUser);
-    		
-    		idCardRepository.save(idcard);
-    	}
-       return idcard;
-    }
+   return idcard;
+
+}
+
 
 
 }

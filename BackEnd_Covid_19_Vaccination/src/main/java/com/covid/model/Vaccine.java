@@ -50,4 +50,6 @@ public class Vaccine {
 	// @JsonIgnore
 	// @OneToOne(cascade = CascadeType.ALL,mappedBy = "vaccine")
 	// private Member member;
+	
+	
 }

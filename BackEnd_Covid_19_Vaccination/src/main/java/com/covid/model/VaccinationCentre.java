@@ -11,12 +11,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Setter
-@Getter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class VaccinationCentre {
 
@@ -29,11 +28,12 @@ public class VaccinationCentre {
     private String locality;
 
 
+    // @OneToMany
+    // private List<Appointment> appointmentList = new ArrayList<>();
     
-//     @OneToMany
-//     private List<Appointment> appointmentList = new ArrayList<>();
-    
-     @OneToMany(cascade=CascadeType.ALL)
-     private List<VaccineInventory> vaccineInventoryList =new ArrayList<>();
+    // @OneToMany(cascade=CascadeType.ALL)
+    // private List<VaccineInventory> vaccineInventoryList =new ArrayList<>();
 
+
+    
 }

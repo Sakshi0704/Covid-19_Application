@@ -173,9 +173,9 @@ public class MemberController{
 
     if(appointment.isBookingstatus()){
         IdProof idproof = idProofRepository.findByIdNumber(idproofnumber);
-        System.out.println("============================================"+idproof);
-   		member.setAppointment(appointment);
-   		//member.setIdProof(idproof);
+   System.out.println("============================================"+idproof);
+   member.setAppointment(appointment);
+    member.setIdProof(idproof);
 
 
     }

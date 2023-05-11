@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -13,7 +13,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
@@ -38,21 +38,19 @@ public class VaccineRegistration {
 	// @NotNull(message = "Mobile is not null, is Mandatory")
 	// @NotBlank(message = "Mobile is Mandatory")
 	// @Column(nullable = true,unique = true)
-	    private String mobileNo;
-	
-	    private String idCardNo; //refId
+	private String mobileNo;
 	
 	// @JsonFormat(pattern = "yyyy-MM-dddd")
 	// @NotNull
-		private LocalDate dateOfRegistration;
+	private LocalDate dateOfRegistration;
 
-		@JsonIgnore
-		@OneToOne(cascade = CascadeType.ALL)
-		private Appointment appointment;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Appointment appointmnet;
 	
-		@JsonIgnore
-		@ManyToOne(cascade = CascadeType.ALL)
-		private Member member;
+	// @OneToMany(cascade = CascadeType.PERSIST)
+	// private List<Member> memberList = new ArrayList<>();
+
+	
 
 }
 

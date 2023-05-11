@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -43,20 +42,20 @@ public class Member{
 	
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private IdCard idCard;
+	@JoinColumn(name = "IdProof_id")
+	private IdProof idProof;
 	
-	 @JsonIgnore
-	 @OneToMany(cascade = CascadeType.ALL)
-	 private List<VaccineRegistration> vaccineRegistrations;
+	//@JsonIgnore
+	// @ManyToMany(cascade = CascadeType.PERSIST)
+	// private VaccineRegistration vaccineRegistration;
 	
 	
-	 @JsonIgnore
-	 @OneToOne(cascade = CascadeType.ALL)
-	 private Vaccine vaccine;
+	// @OneToOne(cascade = CascadeType.PERSIST)
+	// private Vaccine vaccine;
 	
-	 
-	 @OneToOne
-	 private Appointment appointment;
+	
+	@OneToOne
+	private Appointment appointment;
 	
 }
 
