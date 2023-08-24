@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "springdoc.swagger-ui.tagsSorter",
-      "type": "java.lang.String",
-      "description": "Description for springdoc.swagger-ui.tagsSorter."
-  }
-] }
