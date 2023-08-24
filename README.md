@@ -1,9 +1,12 @@
+![Alt text](Covid-19_Application_Logo.jpg)
+
 # REST API for an Covid-19 Vaccination
 
 * A REST API has been created specifically for Covid-19 Vaccination purposes, which includes all the basic CRUD operations found in an Online Vaccine Booking platform, with user validation implemented throughout the process. 
 * The project was undertaken by a team of five Back-end Developers during the Project Construct week at Masai School
 
-# Probem Statement:
+# Probem Statement
+
 * The main objective of this system is to maintain and manage detailed information of covid-19 vaccine registration & vaccinated people that happened in an area under a particular vaccination .
 
 
@@ -34,7 +37,7 @@
 
 
 
-## ER Diagram
+## ER Diagram Of Covid-19 Application
 <img width="730" alt="Screenshot 2023-03-30 123019" src="https://user-images.githubusercontent.com/111387553/229347087-09895ef7-d5ef-461d-b8d8-25d6ee48d6cc.png">
 
 
@@ -42,10 +45,13 @@
 
 * Java
 * Spring Framework
-* MySQL
 * Spring Boot
 * Spring Data JPA
 * Hibernate
+* MySQL
+* Swagger
+* Lombook
+
 
 
 ## Contributors
