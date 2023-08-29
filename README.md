@@ -62,5 +62,6 @@
 * Gaurav Ganguly
 * Dhanushpriyan
 
+## Acknowledgments
 
-##  Thanks for visiting our project.
+* Thank you for visiting the Covid-19_Application repository! If you encounter any issues or have suggestions for improvements, feel free to reach out to us through the contact information provided in the repository.
